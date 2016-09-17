@@ -1,0 +1,77 @@
+{
+  "author": {
+    "email": "gajus@gajus.com",
+    "name": "Gajus Kuizinas",
+    "url": "http://gajus.com"
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  },
+  "bin": "./dist/bin/index.js",
+  "dependencies": {
+    "graphql": "^0.7.0"
+  },
+  "description": "A tool for identifying, reporting and fixing patterns in GraphQL.",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-cli": "^6.11.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-istanbul": "^2.0.0",
+    "babel-plugin-syntax-flow": "^6.13.0",
+    "babel-plugin-tcomb": "^0.3.12",
+    "babel-plugin-transform-export-extensions": "^6.8.0",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-register": "^6.11.6",
+    "conventional-changelog-cli": "^1.2.0",
+    "conventional-changelog-lint": "^1.0.1",
+    "conventional-changelog-lint-config-canonical": "^1.0.0",
+    "coveralls": "^2.11.12",
+    "eslint": "^3.3.1",
+    "eslint-config-canonical": "^1.7.16",
+    "gitdown": "^2.4.10",
+    "husky": "^0.11.6",
+    "nyc": "^8.1.0",
+    "sinon": "^1.17.5",
+    "standard-version": "^2.4.0",
+    "tcomb": "^3.2.13",
+    "travis-after-all": "^1.4.4",
+    "webpack": "^2.1.0-beta.22"
+  },
+  "keywords": [
+    "graphql",
+    "lint"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "./dist/index.js",
+  "name": "graphqllint",
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "instrument": false,
+    "reporter": [
+      "text-lcov"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gajus/graphqllint"
+  },
+  "scripts": {
+    "build": "babel ./src --out-dir ./dist --copy-files",
+    "commitmsg": "conventional-changelog-lint -e",
+    "generate-documentation": "gitdown ./.README/README.md --output-file ./README.md",
+    "lint": "eslint ./src ./test",
+    "test": "NODE_ENV=development ava --verbose"
+  },
+  "version": "0.0.0"
+}
